@@ -9,38 +9,416 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as RoadmapsRouteImport } from './routes/roadmaps'
+import { Route as ResumeTipsRouteImport } from './routes/resume-tips'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as InterviewQuestionsRouteImport } from './routes/interview-questions'
+import { Route as CompaniesRouteImport } from './routes/companies'
+import { Route as CheatsheetsRouteImport } from './routes/cheatsheets'
+import { Route as CareerGuidanceRouteImport } from './routes/career-guidance'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RoadmapsIndexRouteImport } from './routes/roadmaps.index'
+import { Route as ResumeTipsIndexRouteImport } from './routes/resume-tips.index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as InterviewQuestionsIndexRouteImport } from './routes/interview-questions.index'
+import { Route as CompaniesIndexRouteImport } from './routes/companies.index'
+import { Route as CheatsheetsIndexRouteImport } from './routes/cheatsheets.index'
+import { Route as CareerGuidanceIndexRouteImport } from './routes/career-guidance.index'
+import { Route as RoadmapsSlugRouteImport } from './routes/roadmaps.$slug'
+import { Route as ResumeTipsSlugRouteImport } from './routes/resume-tips.$slug'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as InterviewQuestionsSlugRouteImport } from './routes/interview-questions.$slug'
+import { Route as CompaniesSlugRouteImport } from './routes/companies.$slug'
+import { Route as CheatsheetsSlugRouteImport } from './routes/cheatsheets.$slug'
+import { Route as CareerGuidanceSlugRouteImport } from './routes/career-guidance.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapsRoute = RoadmapsRouteImport.update({
+  id: '/roadmaps',
+  path: '/roadmaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResumeTipsRoute = ResumeTipsRouteImport.update({
+  id: '/resume-tips',
+  path: '/resume-tips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewQuestionsRoute = InterviewQuestionsRouteImport.update({
+  id: '/interview-questions',
+  path: '/interview-questions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompaniesRoute = CompaniesRouteImport.update({
+  id: '/companies',
+  path: '/companies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheatsheetsRoute = CheatsheetsRouteImport.update({
+  id: '/cheatsheets',
+  path: '/cheatsheets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerGuidanceRoute = CareerGuidanceRouteImport.update({
+  id: '/career-guidance',
+  path: '/career-guidance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoadmapsIndexRoute = RoadmapsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RoadmapsRoute,
+} as any)
+const ResumeTipsIndexRoute = ResumeTipsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResumeTipsRoute,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const InterviewQuestionsIndexRoute = InterviewQuestionsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InterviewQuestionsRoute,
+} as any)
+const CompaniesIndexRoute = CompaniesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompaniesRoute,
+} as any)
+const CheatsheetsIndexRoute = CheatsheetsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CheatsheetsRoute,
+} as any)
+const CareerGuidanceIndexRoute = CareerGuidanceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CareerGuidanceRoute,
+} as any)
+const RoadmapsSlugRoute = RoadmapsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => RoadmapsRoute,
+} as any)
+const ResumeTipsSlugRoute = ResumeTipsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ResumeTipsRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const InterviewQuestionsSlugRoute = InterviewQuestionsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InterviewQuestionsRoute,
+} as any)
+const CompaniesSlugRoute = CompaniesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CompaniesRoute,
+} as any)
+const CheatsheetsSlugRoute = CheatsheetsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CheatsheetsRoute,
+} as any)
+const CareerGuidanceSlugRoute = CareerGuidanceSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CareerGuidanceRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/career-guidance': typeof CareerGuidanceRouteWithChildren
+  '/cheatsheets': typeof CheatsheetsRouteWithChildren
+  '/companies': typeof CompaniesRouteWithChildren
+  '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/projects': typeof ProjectsRouteWithChildren
+  '/resources': typeof ResourcesRoute
+  '/resume-tips': typeof ResumeTipsRouteWithChildren
+  '/roadmaps': typeof RoadmapsRouteWithChildren
+  '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/career-guidance/$slug': typeof CareerGuidanceSlugRoute
+  '/cheatsheets/$slug': typeof CheatsheetsSlugRoute
+  '/companies/$slug': typeof CompaniesSlugRoute
+  '/interview-questions/$slug': typeof InterviewQuestionsSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/resume-tips/$slug': typeof ResumeTipsSlugRoute
+  '/roadmaps/$slug': typeof RoadmapsSlugRoute
+  '/career-guidance/': typeof CareerGuidanceIndexRoute
+  '/cheatsheets/': typeof CheatsheetsIndexRoute
+  '/companies/': typeof CompaniesIndexRoute
+  '/interview-questions/': typeof InterviewQuestionsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/resume-tips/': typeof ResumeTipsIndexRoute
+  '/roadmaps/': typeof RoadmapsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/resources': typeof ResourcesRoute
+  '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/career-guidance/$slug': typeof CareerGuidanceSlugRoute
+  '/cheatsheets/$slug': typeof CheatsheetsSlugRoute
+  '/companies/$slug': typeof CompaniesSlugRoute
+  '/interview-questions/$slug': typeof InterviewQuestionsSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/resume-tips/$slug': typeof ResumeTipsSlugRoute
+  '/roadmaps/$slug': typeof RoadmapsSlugRoute
+  '/career-guidance': typeof CareerGuidanceIndexRoute
+  '/cheatsheets': typeof CheatsheetsIndexRoute
+  '/companies': typeof CompaniesIndexRoute
+  '/interview-questions': typeof InterviewQuestionsIndexRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/resume-tips': typeof ResumeTipsIndexRoute
+  '/roadmaps': typeof RoadmapsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/career-guidance': typeof CareerGuidanceRouteWithChildren
+  '/cheatsheets': typeof CheatsheetsRouteWithChildren
+  '/companies': typeof CompaniesRouteWithChildren
+  '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/projects': typeof ProjectsRouteWithChildren
+  '/resources': typeof ResourcesRoute
+  '/resume-tips': typeof ResumeTipsRouteWithChildren
+  '/roadmaps': typeof RoadmapsRouteWithChildren
+  '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/career-guidance/$slug': typeof CareerGuidanceSlugRoute
+  '/cheatsheets/$slug': typeof CheatsheetsSlugRoute
+  '/companies/$slug': typeof CompaniesSlugRoute
+  '/interview-questions/$slug': typeof InterviewQuestionsSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/resume-tips/$slug': typeof ResumeTipsSlugRoute
+  '/roadmaps/$slug': typeof RoadmapsSlugRoute
+  '/career-guidance/': typeof CareerGuidanceIndexRoute
+  '/cheatsheets/': typeof CheatsheetsIndexRoute
+  '/companies/': typeof CompaniesIndexRoute
+  '/interview-questions/': typeof InterviewQuestionsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/resume-tips/': typeof ResumeTipsIndexRoute
+  '/roadmaps/': typeof RoadmapsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bookmarks'
+    | '/career-guidance'
+    | '/cheatsheets'
+    | '/companies'
+    | '/interview-questions'
+    | '/projects'
+    | '/resources'
+    | '/resume-tips'
+    | '/roadmaps'
+    | '/search'
+    | '/sitemap.xml'
+    | '/career-guidance/$slug'
+    | '/cheatsheets/$slug'
+    | '/companies/$slug'
+    | '/interview-questions/$slug'
+    | '/projects/$slug'
+    | '/resume-tips/$slug'
+    | '/roadmaps/$slug'
+    | '/career-guidance/'
+    | '/cheatsheets/'
+    | '/companies/'
+    | '/interview-questions/'
+    | '/projects/'
+    | '/resume-tips/'
+    | '/roadmaps/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bookmarks'
+    | '/resources'
+    | '/search'
+    | '/sitemap.xml'
+    | '/career-guidance/$slug'
+    | '/cheatsheets/$slug'
+    | '/companies/$slug'
+    | '/interview-questions/$slug'
+    | '/projects/$slug'
+    | '/resume-tips/$slug'
+    | '/roadmaps/$slug'
+    | '/career-guidance'
+    | '/cheatsheets'
+    | '/companies'
+    | '/interview-questions'
+    | '/projects'
+    | '/resume-tips'
+    | '/roadmaps'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookmarks'
+    | '/career-guidance'
+    | '/cheatsheets'
+    | '/companies'
+    | '/interview-questions'
+    | '/projects'
+    | '/resources'
+    | '/resume-tips'
+    | '/roadmaps'
+    | '/search'
+    | '/sitemap.xml'
+    | '/career-guidance/$slug'
+    | '/cheatsheets/$slug'
+    | '/companies/$slug'
+    | '/interview-questions/$slug'
+    | '/projects/$slug'
+    | '/resume-tips/$slug'
+    | '/roadmaps/$slug'
+    | '/career-guidance/'
+    | '/cheatsheets/'
+    | '/companies/'
+    | '/interview-questions/'
+    | '/projects/'
+    | '/resume-tips/'
+    | '/roadmaps/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookmarksRoute: typeof BookmarksRoute
+  CareerGuidanceRoute: typeof CareerGuidanceRouteWithChildren
+  CheatsheetsRoute: typeof CheatsheetsRouteWithChildren
+  CompaniesRoute: typeof CompaniesRouteWithChildren
+  InterviewQuestionsRoute: typeof InterviewQuestionsRouteWithChildren
+  ProjectsRoute: typeof ProjectsRouteWithChildren
+  ResourcesRoute: typeof ResourcesRoute
+  ResumeTipsRoute: typeof ResumeTipsRouteWithChildren
+  RoadmapsRoute: typeof RoadmapsRouteWithChildren
+  SearchRoute: typeof SearchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmaps': {
+      id: '/roadmaps'
+      path: '/roadmaps'
+      fullPath: '/roadmaps'
+      preLoaderRoute: typeof RoadmapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume-tips': {
+      id: '/resume-tips'
+      path: '/resume-tips'
+      fullPath: '/resume-tips'
+      preLoaderRoute: typeof ResumeTipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview-questions': {
+      id: '/interview-questions'
+      path: '/interview-questions'
+      fullPath: '/interview-questions'
+      preLoaderRoute: typeof InterviewQuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/companies': {
+      id: '/companies'
+      path: '/companies'
+      fullPath: '/companies'
+      preLoaderRoute: typeof CompaniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheatsheets': {
+      id: '/cheatsheets'
+      path: '/cheatsheets'
+      fullPath: '/cheatsheets'
+      preLoaderRoute: typeof CheatsheetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career-guidance': {
+      id: '/career-guidance'
+      path: '/career-guidance'
+      fullPath: '/career-guidance'
+      preLoaderRoute: typeof CareerGuidanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +426,218 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/roadmaps/': {
+      id: '/roadmaps/'
+      path: '/'
+      fullPath: '/roadmaps/'
+      preLoaderRoute: typeof RoadmapsIndexRouteImport
+      parentRoute: typeof RoadmapsRoute
+    }
+    '/resume-tips/': {
+      id: '/resume-tips/'
+      path: '/'
+      fullPath: '/resume-tips/'
+      preLoaderRoute: typeof ResumeTipsIndexRouteImport
+      parentRoute: typeof ResumeTipsRoute
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/interview-questions/': {
+      id: '/interview-questions/'
+      path: '/'
+      fullPath: '/interview-questions/'
+      preLoaderRoute: typeof InterviewQuestionsIndexRouteImport
+      parentRoute: typeof InterviewQuestionsRoute
+    }
+    '/companies/': {
+      id: '/companies/'
+      path: '/'
+      fullPath: '/companies/'
+      preLoaderRoute: typeof CompaniesIndexRouteImport
+      parentRoute: typeof CompaniesRoute
+    }
+    '/cheatsheets/': {
+      id: '/cheatsheets/'
+      path: '/'
+      fullPath: '/cheatsheets/'
+      preLoaderRoute: typeof CheatsheetsIndexRouteImport
+      parentRoute: typeof CheatsheetsRoute
+    }
+    '/career-guidance/': {
+      id: '/career-guidance/'
+      path: '/'
+      fullPath: '/career-guidance/'
+      preLoaderRoute: typeof CareerGuidanceIndexRouteImport
+      parentRoute: typeof CareerGuidanceRoute
+    }
+    '/roadmaps/$slug': {
+      id: '/roadmaps/$slug'
+      path: '/$slug'
+      fullPath: '/roadmaps/$slug'
+      preLoaderRoute: typeof RoadmapsSlugRouteImport
+      parentRoute: typeof RoadmapsRoute
+    }
+    '/resume-tips/$slug': {
+      id: '/resume-tips/$slug'
+      path: '/$slug'
+      fullPath: '/resume-tips/$slug'
+      preLoaderRoute: typeof ResumeTipsSlugRouteImport
+      parentRoute: typeof ResumeTipsRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/interview-questions/$slug': {
+      id: '/interview-questions/$slug'
+      path: '/$slug'
+      fullPath: '/interview-questions/$slug'
+      preLoaderRoute: typeof InterviewQuestionsSlugRouteImport
+      parentRoute: typeof InterviewQuestionsRoute
+    }
+    '/companies/$slug': {
+      id: '/companies/$slug'
+      path: '/$slug'
+      fullPath: '/companies/$slug'
+      preLoaderRoute: typeof CompaniesSlugRouteImport
+      parentRoute: typeof CompaniesRoute
+    }
+    '/cheatsheets/$slug': {
+      id: '/cheatsheets/$slug'
+      path: '/$slug'
+      fullPath: '/cheatsheets/$slug'
+      preLoaderRoute: typeof CheatsheetsSlugRouteImport
+      parentRoute: typeof CheatsheetsRoute
+    }
+    '/career-guidance/$slug': {
+      id: '/career-guidance/$slug'
+      path: '/$slug'
+      fullPath: '/career-guidance/$slug'
+      preLoaderRoute: typeof CareerGuidanceSlugRouteImport
+      parentRoute: typeof CareerGuidanceRoute
+    }
   }
 }
 
+interface CareerGuidanceRouteChildren {
+  CareerGuidanceSlugRoute: typeof CareerGuidanceSlugRoute
+  CareerGuidanceIndexRoute: typeof CareerGuidanceIndexRoute
+}
+
+const CareerGuidanceRouteChildren: CareerGuidanceRouteChildren = {
+  CareerGuidanceSlugRoute: CareerGuidanceSlugRoute,
+  CareerGuidanceIndexRoute: CareerGuidanceIndexRoute,
+}
+
+const CareerGuidanceRouteWithChildren = CareerGuidanceRoute._addFileChildren(
+  CareerGuidanceRouteChildren,
+)
+
+interface CheatsheetsRouteChildren {
+  CheatsheetsSlugRoute: typeof CheatsheetsSlugRoute
+  CheatsheetsIndexRoute: typeof CheatsheetsIndexRoute
+}
+
+const CheatsheetsRouteChildren: CheatsheetsRouteChildren = {
+  CheatsheetsSlugRoute: CheatsheetsSlugRoute,
+  CheatsheetsIndexRoute: CheatsheetsIndexRoute,
+}
+
+const CheatsheetsRouteWithChildren = CheatsheetsRoute._addFileChildren(
+  CheatsheetsRouteChildren,
+)
+
+interface CompaniesRouteChildren {
+  CompaniesSlugRoute: typeof CompaniesSlugRoute
+  CompaniesIndexRoute: typeof CompaniesIndexRoute
+}
+
+const CompaniesRouteChildren: CompaniesRouteChildren = {
+  CompaniesSlugRoute: CompaniesSlugRoute,
+  CompaniesIndexRoute: CompaniesIndexRoute,
+}
+
+const CompaniesRouteWithChildren = CompaniesRoute._addFileChildren(
+  CompaniesRouteChildren,
+)
+
+interface InterviewQuestionsRouteChildren {
+  InterviewQuestionsSlugRoute: typeof InterviewQuestionsSlugRoute
+  InterviewQuestionsIndexRoute: typeof InterviewQuestionsIndexRoute
+}
+
+const InterviewQuestionsRouteChildren: InterviewQuestionsRouteChildren = {
+  InterviewQuestionsSlugRoute: InterviewQuestionsSlugRoute,
+  InterviewQuestionsIndexRoute: InterviewQuestionsIndexRoute,
+}
+
+const InterviewQuestionsRouteWithChildren =
+  InterviewQuestionsRoute._addFileChildren(InterviewQuestionsRouteChildren)
+
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
+interface ResumeTipsRouteChildren {
+  ResumeTipsSlugRoute: typeof ResumeTipsSlugRoute
+  ResumeTipsIndexRoute: typeof ResumeTipsIndexRoute
+}
+
+const ResumeTipsRouteChildren: ResumeTipsRouteChildren = {
+  ResumeTipsSlugRoute: ResumeTipsSlugRoute,
+  ResumeTipsIndexRoute: ResumeTipsIndexRoute,
+}
+
+const ResumeTipsRouteWithChildren = ResumeTipsRoute._addFileChildren(
+  ResumeTipsRouteChildren,
+)
+
+interface RoadmapsRouteChildren {
+  RoadmapsSlugRoute: typeof RoadmapsSlugRoute
+  RoadmapsIndexRoute: typeof RoadmapsIndexRoute
+}
+
+const RoadmapsRouteChildren: RoadmapsRouteChildren = {
+  RoadmapsSlugRoute: RoadmapsSlugRoute,
+  RoadmapsIndexRoute: RoadmapsIndexRoute,
+}
+
+const RoadmapsRouteWithChildren = RoadmapsRoute._addFileChildren(
+  RoadmapsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookmarksRoute: BookmarksRoute,
+  CareerGuidanceRoute: CareerGuidanceRouteWithChildren,
+  CheatsheetsRoute: CheatsheetsRouteWithChildren,
+  CompaniesRoute: CompaniesRouteWithChildren,
+  InterviewQuestionsRoute: InterviewQuestionsRouteWithChildren,
+  ProjectsRoute: ProjectsRouteWithChildren,
+  ResourcesRoute: ResourcesRoute,
+  ResumeTipsRoute: ResumeTipsRouteWithChildren,
+  RoadmapsRoute: RoadmapsRouteWithChildren,
+  SearchRoute: SearchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
