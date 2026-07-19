@@ -19,7 +19,6 @@ import { Route as InterviewQuestionsRouteImport } from './routes/interview-quest
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as CheatsheetsRouteImport } from './routes/cheatsheets'
 import { Route as CareerGuidanceRouteImport } from './routes/career-guidance'
-import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoadmapsIndexRouteImport } from './routes/roadmaps.index'
 import { Route as ResumeTipsIndexRouteImport } from './routes/resume-tips.index'
@@ -84,11 +83,6 @@ const CheatsheetsRoute = CheatsheetsRouteImport.update({
 const CareerGuidanceRoute = CareerGuidanceRouteImport.update({
   id: '/career-guidance',
   path: '/career-guidance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookmarksRoute = BookmarksRouteImport.update({
-  id: '/bookmarks',
-  path: '/bookmarks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -169,7 +163,6 @@ const CareerGuidanceSlugRoute = CareerGuidanceSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
   '/career-guidance': typeof CareerGuidanceRouteWithChildren
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
@@ -197,7 +190,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
   '/resources': typeof ResourcesRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -219,7 +211,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
   '/career-guidance': typeof CareerGuidanceRouteWithChildren
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
@@ -249,7 +240,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/bookmarks'
     | '/career-guidance'
     | '/cheatsheets'
     | '/companies'
@@ -277,7 +267,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/bookmarks'
     | '/resources'
     | '/search'
     | '/sitemap.xml'
@@ -298,7 +287,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/bookmarks'
     | '/career-guidance'
     | '/cheatsheets'
     | '/companies'
@@ -327,7 +315,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BookmarksRoute: typeof BookmarksRoute
   CareerGuidanceRoute: typeof CareerGuidanceRouteWithChildren
   CheatsheetsRoute: typeof CheatsheetsRouteWithChildren
   CompaniesRoute: typeof CompaniesRouteWithChildren
@@ -410,13 +397,6 @@ declare module '@tanstack/react-router' {
       path: '/career-guidance'
       fullPath: '/career-guidance'
       preLoaderRoute: typeof CareerGuidanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/bookmarks': {
-      id: '/bookmarks'
-      path: '/bookmarks'
-      fullPath: '/bookmarks'
-      preLoaderRoute: typeof BookmarksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -626,7 +606,6 @@ const RoadmapsRouteWithChildren = RoadmapsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BookmarksRoute: BookmarksRoute,
   CareerGuidanceRoute: CareerGuidanceRouteWithChildren,
   CheatsheetsRoute: CheatsheetsRouteWithChildren,
   CompaniesRoute: CompaniesRouteWithChildren,
