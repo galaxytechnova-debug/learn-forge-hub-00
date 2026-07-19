@@ -15,6 +15,7 @@ import { Route as RoadmapsRouteImport } from './routes/roadmaps'
 import { Route as ResumeTipsRouteImport } from './routes/resume-tips'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as MentorshipRouteImport } from './routes/mentorship'
 import { Route as InterviewQuestionsRouteImport } from './routes/interview-questions'
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as CheatsheetsRouteImport } from './routes/cheatsheets'
@@ -63,6 +64,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorshipRoute = MentorshipRouteImport.update({
+  id: '/mentorship',
+  path: '/mentorship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InterviewQuestionsRoute = InterviewQuestionsRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
   '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/mentorship': typeof MentorshipRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/resources': typeof ResourcesRoute
   '/resume-tips': typeof ResumeTipsRouteWithChildren
@@ -190,6 +197,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/mentorship': typeof MentorshipRoute
   '/resources': typeof ResourcesRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -215,6 +223,7 @@ export interface FileRoutesById {
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
   '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/mentorship': typeof MentorshipRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/resources': typeof ResourcesRoute
   '/resume-tips': typeof ResumeTipsRouteWithChildren
@@ -244,6 +253,7 @@ export interface FileRouteTypes {
     | '/cheatsheets'
     | '/companies'
     | '/interview-questions'
+    | '/mentorship'
     | '/projects'
     | '/resources'
     | '/resume-tips'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/mentorship'
     | '/resources'
     | '/search'
     | '/sitemap.xml'
@@ -291,6 +302,7 @@ export interface FileRouteTypes {
     | '/cheatsheets'
     | '/companies'
     | '/interview-questions'
+    | '/mentorship'
     | '/projects'
     | '/resources'
     | '/resume-tips'
@@ -319,6 +331,7 @@ export interface RootRouteChildren {
   CheatsheetsRoute: typeof CheatsheetsRouteWithChildren
   CompaniesRoute: typeof CompaniesRouteWithChildren
   InterviewQuestionsRoute: typeof InterviewQuestionsRouteWithChildren
+  MentorshipRoute: typeof MentorshipRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   ResourcesRoute: typeof ResourcesRoute
   ResumeTipsRoute: typeof ResumeTipsRouteWithChildren
@@ -369,6 +382,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentorship': {
+      id: '/mentorship'
+      path: '/mentorship'
+      fullPath: '/mentorship'
+      preLoaderRoute: typeof MentorshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/interview-questions': {
@@ -610,6 +630,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheatsheetsRoute: CheatsheetsRouteWithChildren,
   CompaniesRoute: CompaniesRouteWithChildren,
   InterviewQuestionsRoute: InterviewQuestionsRouteWithChildren,
+  MentorshipRoute: MentorshipRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   ResourcesRoute: ResourcesRoute,
   ResumeTipsRoute: ResumeTipsRouteWithChildren,

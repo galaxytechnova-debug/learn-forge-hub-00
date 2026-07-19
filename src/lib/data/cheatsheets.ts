@@ -1,4 +1,8 @@
 import type { CheatSheet } from "@/types/content";
+import gitVisual from "@/assets/cheatsheet-git.jpg";
+import flexboxVisual from "@/assets/cheatsheet-flexbox.jpg";
+
+
 
 const cheatsheets: CheatSheet[] = [
   {
