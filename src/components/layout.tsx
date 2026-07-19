@@ -23,7 +23,7 @@ export function Header() {
           <span className="h-8 w-8 rounded-lg bg-primary text-primary-foreground grid place-items-center">
             <Code2 className="h-4 w-4" />
           </span>
-          <span className="hidden xs:inline sm:inline">DevVerse</span>
+          <span>DevVerse</span>
         </Link>
 
         <nav className="hidden xl:flex items-center gap-1 text-sm min-w-0">
