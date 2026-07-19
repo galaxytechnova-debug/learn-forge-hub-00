@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import { getCompanyBySlug } from "@/lib/data/companies";
 import { Badge, difficultyTone } from "@/components/dv/Badge";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { CompanyExperience, CompanyRound } from "@/types/content";
 
 export const Route = createFileRoute("/companies/$slug")({
@@ -69,7 +68,6 @@ function CompanyDetail() {
             </Badge>
           </div>
         </div>
-        <BookmarkButton type="company" slug={c.slug} title={`${c.companyName} — ${c.role}`} />
       </header>
 
       <section className="mt-10">

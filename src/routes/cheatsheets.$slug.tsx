@@ -4,7 +4,6 @@ import { Check, Copy, Printer } from "lucide-react";
 import { getCheatSheetBySlug } from "@/lib/data/cheatsheets";
 import { Badge } from "@/components/dv/Badge";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { CheatSheet, CheatSheetBlock } from "@/types/content";
 
 export const Route = createFileRoute("/cheatsheets/$slug")({
@@ -94,7 +93,6 @@ function CheatSheetDetail() {
           <p className="mt-2 text-text-secondary">{sheet.description}</p>
         </div>
         <div className="flex items-center gap-2 no-print">
-          <BookmarkButton type="cheatsheet" slug={sheet.slug} title={sheet.title} />
           <button
             onClick={() => window.print()}
             className="inline-flex items-center gap-2 h-10 px-3 rounded-lg border border-border-default text-sm hover:bg-surface-2"
