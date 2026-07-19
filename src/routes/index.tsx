@@ -13,6 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { getAllRoadmaps } from "@/lib/data/roadmaps";
+import mentorshipHero from "@/assets/mentorship-hero.jpg";
 import { getDailyQuestion } from "@/lib/data/interview-questions";
 import { getAllCheatSheets } from "@/lib/data/cheatsheets";
 import { getAllArticles } from "@/lib/data/articles";
