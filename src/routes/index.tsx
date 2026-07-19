@@ -83,18 +83,18 @@ function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,theme(colors.primary/12),transparent_60%)]" />
-        <div className="max-w-7xl mx-auto px-4 pt-20 pb-16 md:pt-28 md:pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-12 md:pt-28 md:pb-24">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-border-default bg-surface px-3 py-1 text-xs text-text-secondary">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               Built for IT & CS students and working engineers
             </div>
-            <h1 className="mt-6 text-5xl md:text-6xl font-bold tracking-tight text-text-primary">
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text-primary">
               Learn, prepare, and grow as a developer.
             </h1>
-            <p className="mt-5 text-lg text-text-secondary leading-relaxed max-w-2xl">
+            <p className="mt-5 text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl">
               DevVerse gives you the roadmaps to follow, the interview questions to practice, and
-              the cheat sheets to reference — all in one place, all free.
+              the cheat sheets to reference — plus 1-on-1 mentorship when you need real guidance.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
