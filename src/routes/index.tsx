@@ -218,6 +218,56 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Mentorship */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-16 sm:mt-24">
+        <div className="relative overflow-hidden rounded-3xl border border-border-default bg-gradient-to-br from-primary/10 via-surface to-transparent">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center p-6 sm:p-10 lg:p-14">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+                1-on-1 Mentorship
+              </div>
+              <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
+                Personal guidance, not another course to skim.
+              </h2>
+              <p className="mt-3 text-text-secondary leading-relaxed max-w-xl">
+                Get matched with a senior engineer for live sessions on career strategy, mock interviews, resume reviews, and project feedback — free during beta.
+              </p>
+              <ul className="mt-6 grid gap-2.5 text-sm text-text-secondary">
+                <li className="flex items-start gap-2"><Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 45-minute 1-on-1 video sessions with written notes</li>
+                <li className="flex items-start gap-2"><Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Mentors matched to your goal, not a random assignment</li>
+                <li className="flex items-start gap-2"><Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Async follow-up between calls so momentum sticks</li>
+              </ul>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to="/mentorship"
+                  className="inline-flex items-center gap-2 h-11 px-5 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors"
+                >
+                  Book a mentor <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/career-guidance"
+                  className="inline-flex items-center gap-2 h-11 px-5 rounded-lg border border-border-strong text-text-primary font-medium hover:bg-surface-2 transition-colors"
+                >
+                  Browse career articles
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src={mentorshipHero}
+                alt="Developer receiving 1-on-1 mentorship from a senior engineer"
+                loading="lazy"
+                width={1280}
+                height={800}
+                className="rounded-2xl border border-border-default shadow-xl w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Articles */}
       <section className="max-w-7xl mx-auto px-4 mt-20">
         <SectionHeader
