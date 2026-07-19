@@ -11,6 +11,7 @@ const cheatsheets: CheatSheet[] = [
     category: "Tools",
     description: "The commands you actually use every day, plus the ones that save you when things break.",
     contentBlocks: [
+      { type: "image", content: gitVisual, caption: "How branches diverge from main and merge back." },
       { type: "text", content: "Setup and everyday flow." },
       { type: "code", language: "bash", content: "git init\ngit clone <url>\ngit status\ngit add .\ngit commit -m \"msg\"\ngit push origin main" },
       { type: "text", content: "Branching." },
@@ -18,6 +19,8 @@ const cheatsheets: CheatSheet[] = [
       { type: "text", content: "Undoing things — the safe way." },
       { type: "code", language: "bash", content: "git restore <file>          # discard working changes\ngit reset HEAD~1            # undo last commit, keep changes\ngit revert <sha>            # new commit that undoes <sha>\ngit reflog                  # find lost commits" },
     ],
+    thumbnailImageUrl: gitVisual,
+
     printable: true,
     tags: ["git", "cli"],
     createdAt: "2025-11-01",
