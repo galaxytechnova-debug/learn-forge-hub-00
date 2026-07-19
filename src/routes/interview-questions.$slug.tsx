@@ -7,7 +7,6 @@ import {
 } from "@/lib/data/interview-questions";
 import { Badge, difficultyTone } from "@/components/dv/Badge";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { InterviewQuestion } from "@/types/content";
 
 export const Route = createFileRoute("/interview-questions/$slug")({
@@ -123,7 +122,6 @@ function QuestionDetail() {
             </Badge>
           ))}
         </div>
-        <BookmarkButton type="interview-question" slug={question.slug} title={question.title} />
       </div>
 
       <h1 className="mt-4 text-3xl font-bold tracking-tight text-text-primary">{question.title}</h1>

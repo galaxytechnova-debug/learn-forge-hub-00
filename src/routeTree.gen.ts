@@ -15,11 +15,11 @@ import { Route as RoadmapsRouteImport } from './routes/roadmaps'
 import { Route as ResumeTipsRouteImport } from './routes/resume-tips'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as MentorshipRouteImport } from './routes/mentorship'
 import { Route as InterviewQuestionsRouteImport } from './routes/interview-questions'
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as CheatsheetsRouteImport } from './routes/cheatsheets'
 import { Route as CareerGuidanceRouteImport } from './routes/career-guidance'
-import { Route as BookmarksRouteImport } from './routes/bookmarks'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoadmapsIndexRouteImport } from './routes/roadmaps.index'
 import { Route as ResumeTipsIndexRouteImport } from './routes/resume-tips.index'
@@ -66,6 +66,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MentorshipRoute = MentorshipRouteImport.update({
+  id: '/mentorship',
+  path: '/mentorship',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InterviewQuestionsRoute = InterviewQuestionsRouteImport.update({
   id: '/interview-questions',
   path: '/interview-questions',
@@ -84,11 +89,6 @@ const CheatsheetsRoute = CheatsheetsRouteImport.update({
 const CareerGuidanceRoute = CareerGuidanceRouteImport.update({
   id: '/career-guidance',
   path: '/career-guidance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookmarksRoute = BookmarksRouteImport.update({
-  id: '/bookmarks',
-  path: '/bookmarks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -169,11 +169,11 @@ const CareerGuidanceSlugRoute = CareerGuidanceSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
   '/career-guidance': typeof CareerGuidanceRouteWithChildren
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
   '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/mentorship': typeof MentorshipRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/resources': typeof ResourcesRoute
   '/resume-tips': typeof ResumeTipsRouteWithChildren
@@ -197,7 +197,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
+  '/mentorship': typeof MentorshipRoute
   '/resources': typeof ResourcesRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -219,11 +219,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/bookmarks': typeof BookmarksRoute
   '/career-guidance': typeof CareerGuidanceRouteWithChildren
   '/cheatsheets': typeof CheatsheetsRouteWithChildren
   '/companies': typeof CompaniesRouteWithChildren
   '/interview-questions': typeof InterviewQuestionsRouteWithChildren
+  '/mentorship': typeof MentorshipRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/resources': typeof ResourcesRoute
   '/resume-tips': typeof ResumeTipsRouteWithChildren
@@ -249,11 +249,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/bookmarks'
     | '/career-guidance'
     | '/cheatsheets'
     | '/companies'
     | '/interview-questions'
+    | '/mentorship'
     | '/projects'
     | '/resources'
     | '/resume-tips'
@@ -277,7 +277,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/bookmarks'
+    | '/mentorship'
     | '/resources'
     | '/search'
     | '/sitemap.xml'
@@ -298,11 +298,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/bookmarks'
     | '/career-guidance'
     | '/cheatsheets'
     | '/companies'
     | '/interview-questions'
+    | '/mentorship'
     | '/projects'
     | '/resources'
     | '/resume-tips'
@@ -327,11 +327,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BookmarksRoute: typeof BookmarksRoute
   CareerGuidanceRoute: typeof CareerGuidanceRouteWithChildren
   CheatsheetsRoute: typeof CheatsheetsRouteWithChildren
   CompaniesRoute: typeof CompaniesRouteWithChildren
   InterviewQuestionsRoute: typeof InterviewQuestionsRouteWithChildren
+  MentorshipRoute: typeof MentorshipRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   ResourcesRoute: typeof ResourcesRoute
   ResumeTipsRoute: typeof ResumeTipsRouteWithChildren
@@ -384,6 +384,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mentorship': {
+      id: '/mentorship'
+      path: '/mentorship'
+      fullPath: '/mentorship'
+      preLoaderRoute: typeof MentorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/interview-questions': {
       id: '/interview-questions'
       path: '/interview-questions'
@@ -410,13 +417,6 @@ declare module '@tanstack/react-router' {
       path: '/career-guidance'
       fullPath: '/career-guidance'
       preLoaderRoute: typeof CareerGuidanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/bookmarks': {
-      id: '/bookmarks'
-      path: '/bookmarks'
-      fullPath: '/bookmarks'
-      preLoaderRoute: typeof BookmarksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -626,11 +626,11 @@ const RoadmapsRouteWithChildren = RoadmapsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BookmarksRoute: BookmarksRoute,
   CareerGuidanceRoute: CareerGuidanceRouteWithChildren,
   CheatsheetsRoute: CheatsheetsRouteWithChildren,
   CompaniesRoute: CompaniesRouteWithChildren,
   InterviewQuestionsRoute: InterviewQuestionsRouteWithChildren,
+  MentorshipRoute: MentorshipRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   ResourcesRoute: ResourcesRoute,
   ResumeTipsRoute: ResumeTipsRouteWithChildren,

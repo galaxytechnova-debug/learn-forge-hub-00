@@ -2,7 +2,6 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProjectBySlug } from "@/lib/data/projects";
 import { Badge, difficultyTone } from "@/components/dv/Badge";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { ProjectIdea } from "@/types/content";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -64,7 +63,6 @@ function ProjectDetail() {
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-text-primary">{p.title}</h1>
           <p className="mt-3 text-text-secondary text-lg leading-relaxed">{p.description}</p>
         </div>
-        <BookmarkButton type="project" slug={p.slug} title={p.title} />
       </header>
 
       <Section title="Features">

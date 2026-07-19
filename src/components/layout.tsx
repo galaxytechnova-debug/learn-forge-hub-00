@@ -9,16 +9,16 @@ const NAV = [
   { to: "/interview-questions", label: "Interview Q&A" },
   { to: "/cheatsheets", label: "Cheat Sheets" },
   { to: "/projects", label: "Projects" },
-  { to: "/resources", label: "Resources" },
+  { to: "/mentorship", label: "1-on-1 Mentorship" },
   { to: "/career-guidance", label: "Career" },
-  { to: "/companies", label: "Companies" },
+  { to: "/resources", label: "Resources" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border-default no-print">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur border-b border-border-default no-print">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-3 sm:gap-4">
         <Link to="/" className="flex items-center gap-2 font-semibold text-text-primary shrink-0">
           <span className="h-8 w-8 rounded-lg bg-primary text-primary-foreground grid place-items-center">
             <Code2 className="h-4 w-4" />
@@ -26,12 +26,12 @@ export function Header() {
           <span>DevVerse</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1 text-sm">
+        <nav className="hidden xl:flex items-center gap-1 text-sm min-w-0">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-colors"
+              className="px-2.5 py-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-colors whitespace-nowrap"
               activeProps={{ className: "text-text-primary bg-surface-2" }}
             >
               {n.label}
@@ -43,18 +43,18 @@ export function Header() {
           <SearchBox />
         </div>
 
-        <div className="flex items-center gap-2 ml-auto md:ml-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 ml-auto md:ml-2">
           <Link
-            to="/bookmarks"
-            className="hidden md:inline-flex h-10 px-3 items-center rounded-lg text-sm text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-colors"
+            to="/mentorship"
+            className="hidden sm:inline-flex h-9 sm:h-10 px-3 items-center rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary-hover transition-colors whitespace-nowrap"
           >
-            Bookmarks
+            Book mentor
           </Link>
           <ThemeToggle />
           <button
             type="button"
             aria-label="Menu"
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-default"
+            className="xl:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-default"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -63,21 +63,28 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border-default bg-background">
+        <div className="xl:hidden border-t border-border-default bg-background">
           <div className="max-w-7xl mx-auto px-4 py-3 grid gap-1">
-            <div className="pb-2">
+            <div className="pb-2 md:hidden">
               <SearchBox />
             </div>
-            {NAV.concat({ to: "/bookmarks", label: "Bookmarks" }).map((n) => (
+            {NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-2"
+                className="px-3 py-2.5 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-2"
               >
                 {n.label}
               </Link>
             ))}
+            <Link
+              to="/mentorship"
+              onClick={() => setOpen(false)}
+              className="sm:hidden mt-2 px-3 py-2.5 rounded-md bg-primary text-primary-foreground text-center font-medium"
+            >
+              Book a mentor
+            </Link>
           </div>
         </div>
       )}
@@ -87,8 +94,8 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-default mt-24 no-print">
-      <div className="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-4 text-sm">
+    <footer className="border-t border-border-default mt-16 sm:mt-24 no-print">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 grid gap-8 sm:grid-cols-2 md:grid-cols-4 text-sm">
         <div>
           <div className="flex items-center gap-2 font-semibold text-text-primary">
             <span className="h-6 w-6 rounded-md bg-primary text-primary-foreground grid place-items-center">
@@ -117,16 +124,16 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold text-text-primary mb-3">More</h4>
+          <h4 className="font-semibold text-text-primary mb-3">Grow</h4>
           <ul className="grid gap-2 text-text-secondary">
+            <li><Link to="/mentorship" className="hover:text-text-primary">1-on-1 Mentorship</Link></li>
             <li><Link to="/career-guidance" className="hover:text-text-primary">Career Guidance</Link></li>
             <li><Link to="/resources" className="hover:text-text-primary">Free Resources</Link></li>
-            <li><Link to="/bookmarks" className="hover:text-text-primary">Your Bookmarks</Link></li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border-default">
-        <div className="max-w-7xl mx-auto px-4 py-4 text-xs text-text-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 text-xs text-text-muted">
           © {new Date().getFullYear()} DevVerse. Built for learners.
         </div>
       </div>

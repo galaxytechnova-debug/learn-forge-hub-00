@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getArticleBySlug, getRelatedArticles } from "@/lib/data/articles";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { Article } from "@/types/content";
 
 export const Route = createFileRoute("/career-guidance/$slug")({
@@ -58,7 +57,6 @@ function ArticleDetail() {
             {article.author} · {article.estimatedReadTime} min read
           </div>
         </div>
-        <BookmarkButton type="article" slug={article.slug} title={article.title} />
       </header>
       <div className="mt-8 prose max-w-none text-text-primary whitespace-pre-line leading-relaxed">
         {article.content}

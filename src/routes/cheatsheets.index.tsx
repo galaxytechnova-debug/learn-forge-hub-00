@@ -32,11 +32,11 @@ function CheatSheetsList() {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
       <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Cheat Sheets" }]} />
-      <h1 className="mt-4 text-4xl font-bold tracking-tight text-text-primary">Cheat Sheets</h1>
+      <h1 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">Cheat Sheets</h1>
       <p className="mt-2 text-text-secondary max-w-2xl">
-        Dense one-page references you'll actually keep open.
+        Dense one-page references you'll actually keep open — with visuals where they help.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
@@ -62,10 +62,19 @@ function CheatSheetsList() {
             key={s.slug}
             to="/cheatsheets/$slug"
             params={{ slug: s.slug }}
-            className="rounded-2xl border border-border-default bg-surface overflow-hidden hover:border-border-strong transition-colors"
+            className="rounded-2xl border border-border-default bg-surface overflow-hidden hover:border-border-strong transition-colors group"
           >
-            <div className="aspect-[16/10] bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent grid place-items-center">
-              <FileText className="h-10 w-10 text-primary/60" />
+            <div className="aspect-[16/10] bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent grid place-items-center overflow-hidden">
+              {s.thumbnailImageUrl ? (
+                <img
+                  src={s.thumbnailImageUrl}
+                  alt={`${s.title} visual`}
+                  loading="lazy"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <FileText className="h-10 w-10 text-primary/60" />
+              )}
             </div>
             <div className="p-5">
               <div className="flex items-center justify-between">
@@ -80,3 +89,4 @@ function CheatSheetsList() {
     </div>
   );
 }
+

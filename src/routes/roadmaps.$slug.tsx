@@ -6,7 +6,6 @@ import { getInterviewQuestions } from "@/lib/data/interview-questions";
 import { getAllProjects } from "@/lib/data/projects";
 import { Badge, difficultyTone } from "@/components/dv/Badge";
 import { Breadcrumb } from "@/components/dv/Breadcrumb";
-import { BookmarkButton } from "@/components/BookmarkButton";
 import type { Roadmap, InterviewQuestion, ProjectIdea, RoadmapSection } from "@/types/content";
 
 export const Route = createFileRoute("/roadmaps/$slug")({
@@ -120,7 +119,6 @@ function RoadmapDetail() {
           </h1>
           <p className="mt-3 text-text-secondary text-lg leading-relaxed">{roadmap.description}</p>
         </div>
-        <BookmarkButton type="roadmap" slug={roadmap.slug} title={roadmap.title} />
       </header>
 
       {/* Progress */}

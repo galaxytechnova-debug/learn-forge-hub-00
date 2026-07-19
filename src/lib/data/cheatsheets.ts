@@ -1,4 +1,8 @@
 import type { CheatSheet } from "@/types/content";
+import gitVisual from "@/assets/cheatsheet-git.jpg";
+import flexboxVisual from "@/assets/cheatsheet-flexbox.jpg";
+
+
 
 const cheatsheets: CheatSheet[] = [
   {
@@ -7,6 +11,7 @@ const cheatsheets: CheatSheet[] = [
     category: "Tools",
     description: "The commands you actually use every day, plus the ones that save you when things break.",
     contentBlocks: [
+      { type: "image", content: gitVisual, caption: "How branches diverge from main and merge back." },
       { type: "text", content: "Setup and everyday flow." },
       { type: "code", language: "bash", content: "git init\ngit clone <url>\ngit status\ngit add .\ngit commit -m \"msg\"\ngit push origin main" },
       { type: "text", content: "Branching." },
@@ -14,6 +19,8 @@ const cheatsheets: CheatSheet[] = [
       { type: "text", content: "Undoing things — the safe way." },
       { type: "code", language: "bash", content: "git restore <file>          # discard working changes\ngit reset HEAD~1            # undo last commit, keep changes\ngit revert <sha>            # new commit that undoes <sha>\ngit reflog                  # find lost commits" },
     ],
+    thumbnailImageUrl: gitVisual,
+
     printable: true,
     tags: ["git", "cli"],
     createdAt: "2025-11-01",
@@ -36,14 +43,17 @@ const cheatsheets: CheatSheet[] = [
     category: "CSS",
     description: "Every flex property, when to use it, and the common gotchas.",
     contentBlocks: [
+      { type: "image", content: flexboxVisual, caption: "Flex items laid out along the main axis." },
       { type: "text", content: "Container properties." },
       { type: "code", language: "css", content: ".c {\n  display: flex;\n  flex-direction: row | column;\n  justify-content: flex-start | center | space-between;\n  align-items: stretch | center | flex-end;\n  gap: 16px;\n  flex-wrap: wrap;\n}" },
       { type: "text", content: "Item properties." },
       { type: "code", language: "css", content: ".item {\n  flex: 1 1 0;      /* grow shrink basis */\n  align-self: center;\n  order: 2;\n}" },
     ],
+    thumbnailImageUrl: flexboxVisual,
     printable: true,
     tags: ["css", "layout"],
     createdAt: "2025-11-10",
+
   },
   {
     slug: "sql-quick-reference",
