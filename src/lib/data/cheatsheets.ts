@@ -43,14 +43,17 @@ const cheatsheets: CheatSheet[] = [
     category: "CSS",
     description: "Every flex property, when to use it, and the common gotchas.",
     contentBlocks: [
+      { type: "image", content: flexboxVisual, caption: "Flex items laid out along the main axis." },
       { type: "text", content: "Container properties." },
       { type: "code", language: "css", content: ".c {\n  display: flex;\n  flex-direction: row | column;\n  justify-content: flex-start | center | space-between;\n  align-items: stretch | center | flex-end;\n  gap: 16px;\n  flex-wrap: wrap;\n}" },
       { type: "text", content: "Item properties." },
       { type: "code", language: "css", content: ".item {\n  flex: 1 1 0;      /* grow shrink basis */\n  align-self: center;\n  order: 2;\n}" },
     ],
+    thumbnailImageUrl: flexboxVisual,
     printable: true,
     tags: ["css", "layout"],
     createdAt: "2025-11-10",
+
   },
   {
     slug: "sql-quick-reference",
